@@ -1,73 +1,94 @@
 import {
   IonButtons,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
   IonContent,
   IonHeader,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonListHeader,
   IonMenuButton,
   IonPage,
   IonTitle,
-  IonToolbar
-  } from '@ionic/react';
-import { book, build, colorFill, grid } from 'ionicons/icons';
-import React from 'react';
-import './Home.css';
+  IonToolbar,
+  IonFab,
+  IonFabButton,
+  IonIcon,
+  IonFabList,
+  IonRow,
+  IonCol,
+  IonBadge,
+  IonAvatar,
+  IonItem,
+  IonLabel
+} from "@ionic/react";
 
+import { chatboxes, call } from "ionicons/icons";
+
+import React from "react";
+import "./Home.css";
+
+type MapProps = {
+  lat: number;
+  lng: number;
+  zoom: number;
+};
+
+/* const LeafletMap: React.FC = () => {
+  return (
+    <Map center={[state.lat, state.lng]} zoom={state.zoom}>
+      <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
+      />
+    </Map>
+  );
+}; */
 const HomePage: React.FC = () => {
+  /* useEffect(() => {
+    // Update the document title using the browser API
+    ReactDOM.render(<LeafletMap />, document.getElementById("teste"));
+  }); */
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonButtons slot="start">
+          {/* <IonAvatar slot="start">
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+          </IonAvatar>
+          <IonTitle>Fernando</IonTitle> */}
+
+          <IonItem>
+            <IonAvatar slot="start">
+              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+            </IonAvatar>
+            <IonLabel>
+              <h2>Fernando</h2>
+            </IonLabel>
+          </IonItem>
+          <IonButtons slot="end">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>Home</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonCard className="welcome-card">
-          <img src="/assets/shapes.svg" alt=""/>
-          <IonCardHeader>
-            <IonCardSubtitle>Get Started</IonCardSubtitle>
-            <IonCardTitle>Welcome to Ionic</IonCardTitle>
-          </IonCardHeader>
-          <IonCardContent>
-            <p>
-              Now that your app has been created, you'll want to start building out features and
-              components. Check out some of the resources below for next steps.
-            </p>
-          </IonCardContent>
-        </IonCard>
-
-        <IonList lines="none">
-          <IonListHeader>
-            <IonLabel>Resources</IonLabel>
-          </IonListHeader>
-          <IonItem href="https://ionicframework.com/docs/" target="_blank">
-            <IonIcon slot="start" color="medium" icon={book} />
-            <IonLabel>Ionic Documentation</IonLabel>
-          </IonItem>
-          <IonItem href="https://ionicframework.com/docs/building/scaffolding" target="_blank">
-            <IonIcon slot="start" color="medium" icon={build} />
-            <IonLabel>Scaffold Out Your App</IonLabel>
-          </IonItem>
-          <IonItem href="https://ionicframework.com/docs/layout/structure" target="_blank">
-            <IonIcon slot="start" color="medium" icon={grid} />
-            <IonLabel>Change Your App Layout</IonLabel>
-          </IonItem>
-          <IonItem href="https://ionicframework.com/docs/theming/basics" target="_blank">
-            <IonIcon slot="start" color="medium" icon={colorFill} />
-            <IonLabel>Theme Your App</IonLabel>
-          </IonItem>
-        </IonList>
+        <img src="../../Capturar.JPG" />
+        {/* <Map center={[state.lat, state.lng]} zoom={state.zoom}>
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
+            />
+          </Map> */}
+        <IonFab vertical="bottom" horizontal="end" slot="fixed">
+          <IonRow>
+            <IonCol>
+              <IonFabButton>
+                <IonIcon icon={call} />
+              </IonFabButton>
+            </IonCol>
+            <IonCol>
+              <IonFabButton>
+                <IonIcon icon={chatboxes}></IonIcon>
+                <IonBadge color="danger">5</IonBadge>
+              </IonFabButton>
+            </IonCol>
+          </IonRow>
+        </IonFab>
       </IonContent>
     </IonPage>
   );
